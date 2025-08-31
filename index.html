@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
+    <div class="bg" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Primary">
@@ -22,7 +27,7 @@
     </header>
 
     <main id="main" class="container">
-      <section class="hero">
+      <section class="hero reveal">
         <h1>About me</h1>
         <p class="lede">I’m a British developer who genuinely enjoys coding — from small scripts to larger builds — and I’m always tinkering with new ideas.</p>
         <p>Over the years I’ve worked on many projects, exploring different stacks and approaches. I care about clear code, practical solutions, and shipping things that people actually use.</p>
@@ -32,7 +37,7 @@
         </p>
       </section>
 
-      <section class="section">
+      <section class="section reveal">
         <h2>What I enjoy</h2>
         <ul class="list">
           <li>Building useful tools and small utilities</li>
@@ -41,7 +46,7 @@
         </ul>
       </section>
 
-      <section class="section">
+      <section class="section reveal">
         <h2>A few principles</h2>
         <ul class="list">
           <li>Favour clarity over cleverness</li>
@@ -59,6 +64,21 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear().toString();
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealElements = document.querySelectorAll('.reveal');
+      if (!prefersReduced && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+        revealElements.forEach((el) => observer.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add('is-visible'));
+      }
     </script>
   </body>
   </html>
