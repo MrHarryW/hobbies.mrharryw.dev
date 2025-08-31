@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About me — mrharryw</title>
+    <meta name="description" content="A British developer who enjoys coding. Explore my work and projects.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <a class="brand" href="/">mrharryw</a>
+          <ul class="nav-links">
+            <li><a href="/" aria-current="page">About</a></li>
+            <li><a href="https://projects.mrharryw.dev/" rel="noopener noreferrer">Projects</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="hero">
+        <h1>About me</h1>
+        <p class="lede">I’m a British developer who genuinely enjoys coding — from small scripts to larger builds — and I’m always tinkering with new ideas.</p>
+        <p>Over the years I’ve worked on many projects, exploring different stacks and approaches. I care about clear code, practical solutions, and shipping things that people actually use.</p>
+        <p>If you’re curious about what I’ve been up to lately, my projects page is the best place to start.</p>
+        <p>
+          <a class="button" href="https://projects.mrharryw.dev/" rel="noopener noreferrer">See my projects</a>
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>What I enjoy</h2>
+        <ul class="list">
+          <li>Building useful tools and small utilities</li>
+          <li>Learning new technologies by making things</li>
+          <li>Keeping things simple and maintainable</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>A few principles</h2>
+        <ul class="list">
+          <li>Favour clarity over cleverness</li>
+          <li>Automate the boring bits</li>
+          <li>Iterate in public when possible</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> mrharryw</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear().toString();
+    </script>
+  </body>
+  </html>
+
